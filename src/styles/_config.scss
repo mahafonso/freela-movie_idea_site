@@ -1,0 +1,26 @@
+/* MIXINS */
+@function calculateRem($size) {
+	$remSize: $size / 16px;
+	@return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+	font-size: $size;
+	font-size: calculateRem($size);
+}
+
+@mixin box-shadow($format,$h-shadow,$v-shadow,$blur,$spread,$color) {
+	-webkit-box-shadow: $format $h-shadow $v-shadow $blur $spread $color !important;
+	-moz-box-shadow: $format $h-shadow $v-shadow $blur $spread $color !important;
+	-o-box-shadow: $format $h-shadow $v-shadow $blur $spread $color !important;
+	-ms-box-shadow: $format $h-shadow $v-shadow $blur $spread $color !important;
+	box-shadow: $format $h-shadow $v-shadow $blur $spread $color !important;
+}
+
+%transition {
+	-webkit-transition: all 0.4s ease;
+	-moz-transition: all 0.4s ease;
+	-o-transition: all 0.4s ease;
+	-ms-transition: all 0.4s ease;
+	transition: all 0.4s ease;
+}

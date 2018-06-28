@@ -1,0 +1,257 @@
+@charset "UTF-8";
+
+main {
+	.content {
+		background: #1f1f1d url('../img/bg/bg.png') center center;
+		background-repeat: repeat-y;
+
+		>div {
+			width: 100%;
+			padding: 20px 0;
+
+			section {
+				max-width: 844px;
+				margin: 0 auto;
+				padding: 30px;
+				background: #ffffff;
+				text-align: center;
+
+				h2 {
+					margin: 0;
+					padding: 0;
+					@include font-size(30px);
+				}
+
+				p.subtitle {
+					max-width: 600px;
+					margin: 30px auto;
+					padding: 0;
+					@include font-size(20px);
+				}
+			} 
+		}
+
+		.grid {
+			display: block;
+			overflow: hidden;
+
+			>div {
+				float: left;
+				display: inline-block;
+				margin: 8px;
+			}
+
+			&.grid3>div {
+				width: 250px;
+			}
+
+			&.grid4>div {
+				width: 195px;
+			}
+
+			&.grid5>div {
+				width: 152px;
+			}
+		}
+
+		.tabs {
+			overflow: auto;
+			-webkit-overflow-scrolling: touch;
+
+			.tabs-nav {
+				margin-top: 25px;
+
+				li {
+					display: table-cell;
+					vertical-align: middle;
+					width: 86px;
+					height: 30px;
+					padding: 10px;
+					background: #cccccc;
+					@include font-size(14px);
+					@extend %transition;
+
+					&:first-child {
+						border-top-left-radius:5px;
+					}
+
+					&:last-child {
+						border-top-right-radius:5px;
+					}
+				}
+
+				li:hover, li.active {
+					background: #f1f1f1;
+				}
+			}
+		}
+
+		.tabs-content {
+			margin: 0 auto;
+			background: #f1f1f1;
+
+			>div {
+				height: 0;
+				overflow: hidden;
+
+				&.active {
+					display: block;
+					height: auto;
+					padding: 10px 0;
+					background: #f1f1f1;
+					overflow: hidden;
+					-webkit-animation: fadein 0.7s;
+				    -moz-animation: fadein 0.7s;
+				    animation: fadein 0.7s;
+				}
+			}
+		}
+	}
+}
+
+.overlay-modal {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100% !important;
+	background: rgba(19,19,19,0.7);
+
+	.close {
+		display: block;
+		position: absolute;
+		top: -22px;
+		right: -22px;
+		width: 46px;
+		height: 46px;
+		background: url('../img/close.png') no-repeat;
+		background-size: cover;
+		cursor: pointer;
+		z-index: 9999;
+	}
+
+	.modal {
+		display: none;
+		position: fixed;
+		top: 52%;
+		left: 50%;
+		width: 750px;
+		height: 500px;
+		margin: 0 auto;
+		padding: 20px;
+		background: #f1f1f1;
+		border-radius: 3px;
+		@include box-shadow(null,0px,0px,5px,null,#f1f1f1);
+		text-align: center;
+		z-index: 99998;
+		-webkit-transform: translate(-50%,-50%);
+		-ms-transform: translate(-50%,-50%);
+		transform: translate(-50%,-50%);
+
+		iframe {
+			width: 100%;
+			height: 100%;
+		}
+	}
+}
+
+.grid .slick-list {
+	display: block !important;
+	float: none !important;
+	width: auto !important;
+	height: auto !important;
+	padding-bottom: 20px !important;
+}
+
+.slick-slide {
+	text-align: center;
+}
+
+button.slick-prev, button.slick-next {
+	position: absolute;
+	top: 50%;
+	width: 50px;
+	height: 50px;
+	border: none;
+	font-size: 0;
+	cursor: pointer;
+	outline: none;
+	transform: translateY(-50%);
+	@extend %transition;
+}
+
+button.slick-prev {
+	left: 20px;
+	background: url(../img/arrow-left.png);
+	background-repeat: no-repeat;
+}
+
+button.slick-prev:hover {
+	background: url(../img/arrow-left-hover.png);
+	background-repeat: no-repeat;
+}
+
+button.slick-next {
+	right: 20px;
+	background: url(../img/arrow-right.png);
+	background-repeat: no-repeat;
+}
+
+button.slick-next:hover {
+	background: url(../img/arrow-right-hover.png);
+	background-repeat: no-repeat;
+}
+
+.slick-dots {
+	position: absolute;
+	display: block;
+	bottom: 20px;
+	left: 0;
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+
+	li {
+		display: inline-block;
+
+		button {
+			width: 20px;
+			height: 20px;
+			border: none;
+			color: #f58220;
+			background: none;
+			font-size: 0;
+			outline: none;
+		}
+
+		button:before {
+			content: ' ';
+			display: block;
+			width: 10px;
+			height: 10px;
+			background: #f58220;
+			border-radius: 10px;
+			@include font-size(38px);
+			cursor: pointer;
+		}
+
+		&.slick-active {
+			button:before {
+				background: #5253a4;
+			}
+		}
+	}
+}
+
+.feedback_sucesso a {
+	text-decoration: underline;
+}
+
+.feedback_erro a {
+	text-decoration: underline;
+}
+
+.hidden {
+	display:none;
+}
